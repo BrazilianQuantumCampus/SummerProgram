@@ -3,15 +3,15 @@ from qiskit_aer import AerSimulator
 import numpy as np
 
 def demonstrate_measurement_proof():
-    print("--- Postulado 3: Medição (Prova Matemática) ---")
+    print("--- Postulado 3: Medição (Prova de conceito) ---")
     
-    # --- Passo 1: Estado antes da medição ---
+    # ||| Passo 1: Estado antes da medição |||
     print("\n[Passo 1] Estado de Superposição")
     # Estado |+> = 1/sqrt(2) (|0> + |1>)
     psi = (1/np.sqrt(2)) * np.array([[1], [1]])
     print(f"Vetor de Estado |psi>:\n{psi}")
     
-    # --- Passo 2: Cálculo Teórico da Probabilidade ---
+    # ||| Passo 2: Cálculo Teórico da Probabilidade |||
     print("\n[Passo 2] Cálculo Teórico P(m) = |<m|psi>|^2")
     
     # Projetor para |0>
@@ -22,7 +22,7 @@ def demonstrate_measurement_proof():
     print(f"Amplitude <0|psi>: {inner_prod_0[0,0]:.4f}")
     print(f"Probabilidade P(0): {prob_0[0,0]:.4f} (Teórico)")
     
-    # --- Passo 3: Experimento Monte Carlo (Qiskit) ---
+    # ||| Passo 3: Experimento Monte Carlo (Qiskit) |||
     print("\n[Passo 3] Validação Experimental (1000 shots)")
     qc = QuantumCircuit(1)
     qc.h(0)
@@ -44,8 +44,8 @@ def demonstrate_measurement_proof():
     else:
         print(">> AVISO: Flutuação estatística normal, ou verificar shots.")
 
-    # --- Passo 4: Plotar Circuito ---
-    print("\n[Passo 4] Gerando imagem do circuito...")
+    # ||| Passo 4: Plotar Circuito |||
+    print("\n[Passo 4] Gerando imagem do circuito")
     fig = qc.draw(output='mpl')
     fig.suptitle("Postulado 3: Medição (Colapso)")
     fig.savefig('circuit_postulate_3.png')
@@ -53,3 +53,4 @@ def demonstrate_measurement_proof():
 
 if __name__ == "__main__":
     demonstrate_measurement_proof()
+
