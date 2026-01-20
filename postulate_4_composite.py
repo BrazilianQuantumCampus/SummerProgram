@@ -5,7 +5,7 @@ import numpy as np
 def demonstrate_composite_proof():
     print("--- Postulado 4: Sistemas Compostos (Prova Matemática) ---")
     
-    # --- Passo 1: Produto Tensorial ---
+    # ||| Passo 1: Produto Tensorial |||
     print("\n[Passo 1] Construção do Estado Produto |+> sum |0>")
     # Qubit 0: |+> = 1/sqrt(2) [1, 1]
     q0 = (1/np.sqrt(2)) * np.array([[1], [1]])
@@ -28,7 +28,7 @@ def demonstrate_composite_proof():
     print(f"\nProduto Tensorial Manual (q0 (x) q1):\n{psi_math_initial}")
     print("Interpretado como coeficientes de: |00>, |01>, |10>, |11>")
     
-    # --- Passo 2: Aplicação da CNOT ---
+    # ||| Passo 2: Aplicação da CNOT |||
     print("\n[Passo 2] Aplicação da Matriz CNOT")
     # Matriz CNOT padrão (controle q0, alvo q1)
     # |00> -> |00>
@@ -46,7 +46,7 @@ def demonstrate_composite_proof():
     psi_final_math = np.dot(CNOT_matrix, psi_math_initial)
     print(f"\nEstado Final Calculado (Bell State):\n{psi_final_math}")
     
-    # --- Passo 3: Verificação Qiskit ---
+    # ||| Passo 3: Verificação Qiskit |||
     print("\n[Passo 3] Simulação Qiskit")
     qc = QuantumCircuit(2)
     qc.h(0)
@@ -66,7 +66,7 @@ def demonstrate_composite_proof():
     else:
         print(">> AVISO: Verificar convenção de endianness. (Mas para estado de BellPhi+, são iguais).")
 
-    # --- Passo 4: Plotar Circuito ---
+    # ||| Passo 4: Plotar Circuito |||
     print("\n[Passo 4] Gerando imagem do circuito...")
     qc.measure_all(inplace=True)
     fig = qc.draw(output='mpl')
@@ -76,3 +76,4 @@ def demonstrate_composite_proof():
 
 if __name__ == "__main__":
     demonstrate_composite_proof()
+
